@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Sidebar from "@/app/components/common/Sidebar";
 
 export const metadata: Metadata = {
   title: "mstock",
@@ -13,7 +14,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="light">
+        <div className="flex gap-10">
+          <Sidebar />
+          <div className="flex flex-col gap-10 px-10">
+            <header>header</header>
+            <main>{children}</main>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
