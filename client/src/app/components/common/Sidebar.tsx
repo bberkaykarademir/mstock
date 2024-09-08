@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import {
@@ -18,23 +19,26 @@ const Sidebar = () => {
     { href: "/demands", text: "Demands", icon: <Handshake /> },
     { href: "/sales", text: "Sales", icon: <Banknote /> },
     { href: "/staff", text: "Staff", icon: <UserRound /> },
-    { href: "/assets", text: "Company Assets", icon: <Building /> },
+    { href: "/company-assets", text: "Company Assets", icon: <Building /> },
     { href: "/settings", text: "Settings", icon: <Settings /> },
   ];
 
   return (
-    <aside className="bg-white sticky top-0 h-screen w-64 shadow pb-5 pt-10 flex flex-col gap-10">
+    <aside className="bg-white sticky top-0 h-dvh w-64 flex-shrink-0 shadow pb-5 pt-10 flex flex-col gap-10">
       <div className="flex gap-4 items-center justify-center">
         <h1 className="text-2xl my-auto font-bold text-center">
           <span className="text-blue-500">m</span>
           <span>stock</span>
         </h1>
-        {/* <button className="rounded-full bg-gray-200 mt-1 p-2">
+        <button
+          className="rounded-full bg-gray-100 hover:bg-blue-100 mt-1 p-2"
+          onClick={() => {}}
+        >
           <Menu className="w-4 h-4" />
-        </button> */}
+        </button>
       </div>
       <nav>
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col">
           {menuItems.map((menuItem, index) => (
             <li key={index}>
               <Link
