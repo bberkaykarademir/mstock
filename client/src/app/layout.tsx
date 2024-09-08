@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Sidebar from "@/app/components/common/Sidebar";
-import Header from "@/app/components/common/Header";
+
+import StoreProviderComponent from "@/app/components/common/StoreProviderComponent";
+import LayoutContentWrapper from "@/app/components/common/LayoutContentWrapper";
 
 export const metadata: Metadata = {
   title: "mstock",
@@ -15,14 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="light">
-        <div className="flex gap-10">
-          <Sidebar />
-          <div className="flex flex-col px-10 flex-grow">
-            <Header />
-            <main>{children}</main>
-          </div>
-        </div>
+      <body>
+        <StoreProviderComponent>
+          <LayoutContentWrapper>{children}</LayoutContentWrapper>
+        </StoreProviderComponent>
       </body>
     </html>
   );
