@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model Products {
+  id            String      @id
+  name          String
+  price         Float
+  cost          Float
+  rating        Float
+  stockQuantity Int
+  sales         Sales[]
+  purchases     Purchases[]
+}
+
+model Sales {
+  id          String   @id
+  productId   String
+  timestamp   DateTime
+  quantity    Int
+  unitPrice   Float
+  product     Products @relation(fields: [productId], references: [id])
+}
+
+model Purchases {
+  id         String   @id
+  productId  String
+  deliverer  Deliverer @relation(fields: [delivererId], references: [id])
+  delivererId String
+  timestamp  DateTime
+  quantity   Int
+  unitCost   Float
+  totalCost  Float
+  product    Products @relation(fields: [productId], references: [id])
+}
+
+model Deliverer {
+  id    String   @id
+  name  String
+  purchases Purchases[]
+}
+
+model Expenses {
+  id String   @id
+  type  ExpenseType
+  amount    Float
+  timestamp DateTime
+}
+
+enum ExpenseType {
+  PURCHASES
+  ASSETS
+  SALARIES
+}
+
+model Staff {
+  id     String @id
+  name   String
+  email  String @unique
+  phoneNumber String @unique
+  role   Role
+  salary Float
+  joinDate DateTime
+}
+
+enum Role {
+  BOSS
+  EMPLOYEE
+}
+
+model Assets {
+  id String @id
+  name String
+  cost Float
+  quantity Int
+  purchaseDate DateTime
+}
