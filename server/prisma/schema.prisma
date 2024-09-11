@@ -70,7 +70,7 @@ model Staff {
   id     String @id
   name   String
   email  String @unique
-  phoneNumber String @unique
+  phoneNumber String @unique 
   role   Role
   salary Float
   joinDate DateTime
@@ -83,8 +83,14 @@ enum Role {
 
 model Assets {
   id String @id
-  name String
+  type AssetType
   cost Float
   quantity Int
-  purchaseDate DateTime
+}
+
+enum AssetType {
+  OFFICE
+  VEHICLE
+  COMPUTER
+  FURNITURE
 }

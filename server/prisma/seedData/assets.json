@@ -1,0 +1,26 @@
+[
+  {
+    "id": "8a1f2d53-804c-4766-80a7-3514f51693f9",
+    "type": "VEHICLE",
+    "cost": 1531000,
+    "quantity": 20
+  },
+  {
+    "id": "96f73a8c-0cdf-40c5-a52f-a8ec4ea2c1eb",
+    "type": "COMPUTER",
+    "cost": 10000,
+    "quantity": 100
+  },
+  {
+    "id": "849fec03-d1c4-462d-9436-83c14183fd49",
+    "type": "FURNITURE",
+    "cost": 5000,
+    "quantity": 50
+  },
+  {
+    "id": "f3b3b3b3-3b3b-3b3b-3b3b-3b3b3b3b3b3b",
+    "type": "OFFICE",
+    "cost": 10000,
+    "quantity": 1
+  }
+]
